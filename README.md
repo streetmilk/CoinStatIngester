@@ -1,2 +1,2 @@
 # CoinStatIngester
-Injest coin stats to csv
+Ingest coin stats to csv
