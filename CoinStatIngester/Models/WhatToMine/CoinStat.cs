@@ -2,6 +2,7 @@ namespace CoinStatIngester.Models.WhatToMine
 {
     public class CoinStat
     {
+        
         public int id { get; set; }
         public string tag { get; set; }
         public string algorithm { get; set; }
@@ -25,5 +26,13 @@ namespace CoinStatIngester.Models.WhatToMine
         public int profitability24{get;set;}
         public bool lagging {get;set;}
         public int timestamp {get;set;}
+
+        public override string ToString()
+        {
+            return $"{id}, {tag}, {algorithm}, {block_time}, {block_reward}, {block_reward24}," + 
+            $"{last_block}, {difficulty}, {difficulty24}, {nethash}, {exchange_rate}, {exchange_rate24}," +
+            $"{exchange_rate_vol}, {exchange_rate_curr}, {market_cap}, {estimated_rewards}, {estimated_rewards24}"+
+            $"{btc_revenue}, {btc_revenue24}, {profitability}, {profitability24}, {lagging}, {timestamp}";   
+        }
     }
 }
