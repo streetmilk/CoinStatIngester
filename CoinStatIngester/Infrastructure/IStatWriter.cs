@@ -5,6 +5,6 @@ namespace CoinStatIngester.Infrastructure
 {
     public interface IStatWriter
     {
-        void Write(IDictionary<string, CoinStat> data);
+        void Write(CoinCollection data);
     }    
 }

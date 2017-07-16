@@ -16,11 +16,15 @@ namespace CoinStatIngester.Data
             _client = client;
         }
 
-        public IDictionary<string, CoinStat> Get()
+        public CoinCollection Get()
         {
-            var result = _client.GetAsync(statUrl).Result;
+            HttpResponseMessage result =  _client.GetAsync(statUrl).Result;
+            
+            result.EnsureSuccessStatusCode();
+            
+            string responseBody = result.Content.ReadAsStringAsync().Result;
 
-            return JsonConvert.DeserializeObject<Dictionary<string,CoinStat>>(result.Content.ToString());
+            return JsonConvert.DeserializeObject<CoinCollection>(responseBody);
         }
     }
 }

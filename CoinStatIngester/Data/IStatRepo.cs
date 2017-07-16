@@ -5,6 +5,6 @@ namespace CoinStatIngester.Data
 {
     public interface IStatRepo
     {
-        IDictionary<string, CoinStat> Get();
+        CoinCollection Get();
     }
 }

@@ -16,7 +16,7 @@ namespace CoinStatIngester.Infrastructure
                 _writeLocation = writeLocation + "\\";
         }
 
-        public void Write(IDictionary<string, CoinStat> data)
+        public void Write(CoinCollection data)
         {
             using (var stream = new FileStream(GetFullFilePath(), FileMode.CreateNew))
             {
@@ -24,7 +24,7 @@ namespace CoinStatIngester.Infrastructure
                 {
                     //always write header line
                     writer.WriteLine("Name, Id, Tag, Algorithm, Block Time, Block Reward, Block Reward 24, Last Block, Difficulty, Difficulty 24, Net Hash, Exchange Rate, Exchange Rate 24, Exchange Rate Vol, Exchange Rate Curr, Market Cap, Estimated Rewards, Estimated Rewards 24, Btc Revenue, Btc Revenue 24, Profitability, Profitability 24, Lagging, Timestamp");
-                    foreach(var item in data)
+                    foreach(var item in data.coins)
                     {
                         writer.WriteLine($"{item.Key}, {item.Value.ToString()}");
                     }
