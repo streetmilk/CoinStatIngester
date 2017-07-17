@@ -14,7 +14,7 @@ namespace CoinStatIngester
             builder.RegisterType<HttpClient>().UsingConstructor();
             builder.RegisterType<WhatToMineStatRepo>().As<IStatRepo>();
             builder.RegisterType<CsvStatWriter>().As<IStatWriter>().WithParameter("writeLocation", "C:\\stats\\");
-            builder.RegisterType<Controller>().WithParameter("callIntervalInMinutes", 1);
+            builder.RegisterType<Controller>().WithParameter("callIntervalInMinutes", 15);
 
             return builder;
         }
